@@ -3,9 +3,6 @@ require('dotenv').config();
 
 const todoist = new Todoist(process.env.TODOIST_API_TOKEN);
 
-// console.log(todoist._getUuid());
-// process.exit();
-
-todoist.sections.get(69084605).then(p => {
+todoist.tasks.all(2278494454, 69081790, 2158879201, null, null, [5332546105, 5332546004]).then(p => {
     console.log(p);
 });

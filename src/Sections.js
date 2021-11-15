@@ -1,12 +1,12 @@
 module.exports = class TodoistSections {
 
-    constructor(client) {
-        this._client = client;
+    constructor(main) {
+        this._main = main;
         this._prefix = 'sections';
     }
 
     all() {
-        return this._client.get(this._prefix).then(response => response.data);
+        return this._main.client.get(this._prefix).then(response => response.data);
     }
 
     ofProject(projectId) {
@@ -14,7 +14,7 @@ module.exports = class TodoistSections {
             throw Error('No projectId provided');
         }
 
-        return this._client.get(`${this._prefix}?project_id=${projectId}`).then(response => response.data);
+        return this._main.client.get(`${this._prefix}?project_id=${projectId}`).then(response => response.data);
     }
 
     create(projectId, name, order) {
@@ -35,7 +35,7 @@ module.exports = class TodoistSections {
             data.order = order;
         }
 
-        return this._client.post(this._prefix, JSON.stringify(data)).then(response => response.data);
+        return this._main.client.post(this._prefix, JSON.stringify(data)).then(response => response.data);
     }
 
     get(id) {
@@ -43,7 +43,7 @@ module.exports = class TodoistSections {
             throw Error('No id provided');
         }
 
-        return this._client.get(`${this._prefix}/${id}`).then(response => response.data);
+        return this._main.client.get(`${this._prefix}/${id}`).then(response => response.data);
     }
 
     update(id, name) {
@@ -59,7 +59,7 @@ module.exports = class TodoistSections {
             name: name
         };
 
-        return this._client.post(`${this._prefix}/${id}`, JSON.stringify(data)).then(response => response.status);
+        return this._main.client.post(`${this._prefix}/${id}`, JSON.stringify(data)).then(response => response.status);
     }
 
     delete(id) {
@@ -67,7 +67,7 @@ module.exports = class TodoistSections {
             throw Error('No id provided');
         }
 
-        return this._client.delete(`${this._prefix}/${id}`).then(response => response.status);
+        return this._main.client.delete(`${this._prefix}/${id}`).then(response => response.status);
     }
 
 };
