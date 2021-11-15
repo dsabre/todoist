@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/dsabre/todoist/issues"
   },
-  "homepage": "https://github.com/dsabre/todoist#readme"
+  "homepage": "https://github.com/dsabre/todoist#readme",
+  "devDependencies": {
+    "dotenv": "^10.0.0"
+  },
+  "dependencies": {
+    "axios": "^0.24.0"
+  }
 }
