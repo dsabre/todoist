@@ -24,6 +24,8 @@ Npm module for use Todoist API.
 ## Usage
 
 ```javascript
+import Todoist from "@dsabre/todoist";
+
 const todoist  = new Todoist('YOUR TODOIST API TOKEN');
 ```
 
