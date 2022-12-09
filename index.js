@@ -5,9 +5,9 @@ const TodoistTasks    = require("./src/Tasks");
 
 module.exports = class Todoist {
 	
-	constructor(apiToken) {
+	constructor(apiToken, version = 2) {
 		this.client = axios.create({
-			baseURL: 'https://api.todoist.com/rest/v1/',
+			baseURL: `https://api.todoist.com/rest/v${version}/`,
 			headers: {
 				'Authorization': `Bearer ${apiToken}`,
 				"X-Request-Id":  this.getUuid(),
